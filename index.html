@@ -4,53 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Press AI</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="main-header">
-        <div class="logo">
-            <i class="fas fa-robot"></i>
-            <span>Press AI</span>
-        </div>
-        
-        <div class="header-actions">
-            <button class="new-article-btn">
-                <i class="fas fa-plus"></i>
-                <span>Novo Artigo</span>
+        <div class="container">
+            <!-- Botão do Menu Mobile -->
+            <button class="menu-toggle" id="menuToggle">
+                <span class="material-icons">menu</span>
             </button>
-            
-            <div class="profile-dropdown">
-                <div class="profile-btn">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="profile-menu">
-                    <div class="profile-info">
-                        <h4>Seu Nome</h4>
-                        <p>seu.email@exemplo.com</p>
+
+            <div class="logo">
+                <img src="assets/imagens/logo.png" alt="Logo Press AI" class="logo-img" />
+                <span class="logo-text">Press AI</span>
+            </div>
+
+            <div class="header-right">
+                <button class="primary-button" id="newArticleBtn">
+                    <span class="material-icons">note_add</span>
+                    <span>Novo Artigo</span>
+                </button>
+
+                <div class="account">
+                    <div class="profile-image">
+                        <span class="material-icons">person</span>
                     </div>
-                    <div class="profile-links">
-                        <a href="/perfil"><i class="fas fa-user-circle"></i> Perfil</a>
-                        <a href="/configuracoes"><i class="fas fa-cog"></i> Configurações</a>
-                        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    <div class="profile-menu">
+                        <div class="profile-info">
+                            <h4>Seu Nome</h4>
+                            <p>seu.email@exemplo.com</p>
+                        </div>
+                        <div class="profile-links">
+                            <a href="/perfil"><i class="material-icons">person</i> Perfil</a>
+                            <a href="/configuracoes"><i class="material-icons">settings</i> Configurações</a>
+                            <a href="/logout"><i class="material-icons">logout</i> Sair</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="content">
-        <!-- Conteúdo principal aqui -->
-    </main>
+    <!-- Overlay para menu mobile -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Layout Principal -->
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="menu">
+                <!-- Seção Principal -->
+                <div class="menu-section">
+                    <a href="#/dashboard" class="menu-item active">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#/artigos" class="menu-item">
+                        <i class="material-icons">article</i>
+                        <span>Artigos</span>
+                    </a>
+                    <a href="#/categorias" class="menu-item">
+                        <i class="material-icons">category</i>
+                        <span>Categorias</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- O conteúdo será carregado aqui -->
+            </div>
+        </main>
+    </div>
 
     <script>
         // Adicionar interatividade ao dropdown do perfil
-        document.querySelector('.profile-btn').addEventListener('click', function() {
+        document.querySelector('.profile-image').addEventListener('click', function() {
             document.querySelector('.profile-menu').classList.toggle('active');
+        });
+
+        // Adicionar interatividade ao menu mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        });
+
+        document.getElementById('mobileOverlay').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('active');
+            this.classList.remove('active');
         });
     </script>
 </body>
-</html> 
+</html>
