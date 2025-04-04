@@ -56,12 +56,17 @@ body {
 
 /* Conteúdo Principal */
 .main-content {
-    flex: 1;
+    margin-left: var(--sidebar-expanded);
     padding: 2rem;
+    transition: margin-left var(--transition-normal);
     background: var(--bg-white);
     border-radius: var(--border-radius);
     margin: 1rem;
     box-shadow: var(--shadow-sm);
+}
+
+body.sidebar-collapsed .main-content {
+    margin-left: var(--sidebar-collapsed);
 }
 
 .content-wrapper {

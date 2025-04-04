@@ -306,6 +306,15 @@
     min-height: 40px !important;
     margin: 0 !important;
   }
+
+  .sidebar-toggle {
+    display: flex !important;
+    margin-right: 0.5rem;
+  }
+  
+  .sidebar-toggle:hover {
+    background: var(--bg-gray-light);
+  }
 }
 
 /* Versão responsiva (tablet e mobile) */
@@ -370,4 +379,30 @@
     height: 100% !important;
     align-items: center !important;
   }
+}
+
+.sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+    background: var(--bg-gray-light);
+}
+
+.sidebar-toggle .material-icons {
+    font-size: 24px;
+}
+
+.sidebar.collapsed .sidebar-toggle .material-icons {
+    transform: rotate(0deg);
 } 

@@ -15,8 +15,8 @@
     <!-- Header -->
     <header class="main-header">
         <div class="container">
-            <!-- Botão do Menu Mobile -->
-            <button class="menu-toggle" id="menuToggle">
+            <!-- Botão do Menu -->
+            <button class="sidebar-toggle" id="menuToggle" aria-label="Toggle menu">
                 <span class="material-icons">menu</span>
             </button>
 
@@ -59,91 +59,43 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <nav class="menu">
-                <!-- Seção Principal -->
+                <!-- Menu Principal -->
                 <div class="menu-section">
-                    <a href="#/dashboard" class="menu-item active">
-                        <i class="material-icons">dashboard</i>
-                        <span>Dashboard</span>
+                    <a href="#/painel" class="menu-item active" data-title="Painel Editorial">
+                        <span class="material-icons">dashboard</span>
+                        <span>Painel Editorial</span>
                     </a>
-                    <a href="#/novo-artigo" class="menu-item">
-                        <i class="material-icons">edit</i>
-                        <span>Novo Artigo</span>
+                    <a href="#/ultimas" class="menu-item" data-title="Últimas Notícias">
+                        <span class="material-icons">article</span>
+                        <span>Últimas Notícias</span>
                     </a>
-                    <a href="#/reformular" class="menu-item">
-                        <i class="material-icons">auto_fix_high</i>
-                        <span>Reformular Artigo</span>
+                    <a href="#/novo-artigo" class="menu-item" data-title="Criar Novo Artigo">
+                        <span class="material-icons">edit</span>
+                        <span>Criar Novo Artigo</span>
                     </a>
-                    <a href="#/transcricao" class="menu-item">
-                        <i class="material-icons">record_voice_over</i>
-                        <span>Transcrição</span>
+                    <a href="#/reformular" class="menu-item" data-title="Reformular Conteúdo">
+                        <span class="material-icons">auto_fix_high</span>
+                        <span>Reformular Conteúdo</span>
                     </a>
-                    <a href="#/conexoes" class="menu-item">
-                        <i class="material-icons">link</i>
-                        <span>Conexões Externas</span>
+                    <a href="#/transcrever" class="menu-item" data-title="Transcrever Áudio">
+                        <span class="material-icons">record_voice_over</span>
+                        <span>Transcrever Áudio</span>
                     </a>
-                    <a href="#/notificacoes" class="menu-item">
-                        <i class="material-icons">notifications</i>
-                        <span>Notificações</span>
-                        <span class="badge">3</span>
+                    <a href="#/gestao" class="menu-item" data-title="Gestão de Artigos">
+                        <span class="material-icons">folder_open</span>
+                        <span>Gestão de Artigos</span>
                     </a>
-                </div>
-
-                <!-- Seção Artigos -->
-                <div class="menu-section">
-                    <h3 class="menu-title">Artigos</h3>
-                    <a href="#/em-producao" class="menu-item">
-                        <i class="material-icons">article</i>
-                        <span>Em Produção</span>
+                    <a href="#/analise" class="menu-item" data-title="Análise Editorial">
+                        <span class="material-icons">analytics</span>
+                        <span>Análise Editorial</span>
                     </a>
-                    <a href="#/revisao" class="menu-item">
-                        <i class="material-icons">rate_review</i>
-                        <span>Revisão</span>
+                    <a href="#/integracoes" class="menu-item" data-title="Integração Externa">
+                        <span class="material-icons">integration_instructions</span>
+                        <span>Integração com Plataformas</span>
                     </a>
-                    <a href="#/publicados" class="menu-item">
-                        <i class="material-icons">published_with_changes</i>
-                        <span>Publicados</span>
-                    </a>
-                    <a href="#/arquivo" class="menu-item">
-                        <i class="material-icons">folder</i>
-                        <span>Arquivo</span>
-                    </a>
-                </div>
-
-                <!-- Seção Análise -->
-                <div class="menu-section">
-                    <h3 class="menu-title">Análise</h3>
-                    <a href="#/desempenho" class="menu-item">
-                        <i class="material-icons">analytics</i>
-                        <span>Desempenho</span>
-                    </a>
-                    <a href="#/relatorios" class="menu-item">
-                        <i class="material-icons">assessment</i>
-                        <span>Relatórios</span>
-                    </a>
-                    <a href="#/insights" class="menu-item">
-                        <i class="material-icons">psychology</i>
-                        <span>Insights IA</span>
-                    </a>
-                    <a href="#/tendencias" class="menu-item">
-                        <i class="material-icons">trending_up</i>
-                        <span>Tendências</span>
-                    </a>
-                </div>
-
-                <!-- Seção Configurações -->
-                <div class="menu-section">
-                    <h3 class="menu-title">Configurações</h3>
-                    <a href="#/preferencias" class="menu-item">
-                        <i class="material-icons">settings</i>
-                        <span>Preferências</span>
-                    </a>
-                    <a href="#/integracoes" class="menu-item">
-                        <i class="material-icons">integration_instructions</i>
-                        <span>Integrações</span>
-                    </a>
-                    <a href="#/ajuda" class="menu-item">
-                        <i class="material-icons">help</i>
-                        <span>Ajuda</span>
+                    <a href="#/normas" class="menu-item" data-title="Normas e Estilo">
+                        <span class="material-icons">style</span>
+                        <span>Normas e Estilo</span>
                     </a>
                 </div>
             </nav>
