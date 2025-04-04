@@ -1,0 +1,95 @@
+.sidebar {
+  width: 240px;
+  background: linear-gradient(to bottom, $bg-dark, $bg-darker);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  overflow-y: auto;
+  transition: $transition-base;
+  z-index: $z-index-fixed;
+
+  .menu {
+    padding: $spacing-md 0;
+
+    .menu-item {
+      padding: $spacing-md $spacing-lg;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: $transition-base;
+      border-left: 3px solid transparent;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+      }
+
+      &.active {
+        background: rgba(255, 255, 255, 0.1);
+        border-left-color: $primary-color;
+        color: #ffffff;
+      }
+
+      i {
+        margin-right: $spacing-md;
+        font-size: 1.2em;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    transform: translateX(-100%);
+    box-shadow: $shadow-md;
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}
+
+// Responsividade
+@include respond-to(sm) {
+  .sidebar {
+    width: 64px;
+
+    .menu {
+      .menu-item {
+        padding: $spacing-sm;
+        justify-content: center;
+
+        span {
+          display: none;
+        }
+
+        i {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(md) {
+  .sidebar {
+    width: 240px;
+
+    .menu {
+      .menu-item {
+        padding: $spacing-sm $spacing-md;
+        justify-content: flex-start;
+
+        span {
+          display: inline;
+        }
+
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+} 

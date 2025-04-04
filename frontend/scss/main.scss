@@ -1,0 +1,27 @@
+// Variáveis e mixins primeiro
+@import 'variables';
+@import 'base/mixins';
+
+// Reset e estilos base
+@import 'base/reset';
+@import 'base/typography';
+
+// Utils
+@import 'utils/animations';
+@import 'utils/helpers';
+@import 'utils/responsive';
+
+// Componentes
+@import 'components/buttons';
+@import 'components/dashboard';
+@import 'components/header';
+@import 'components/sidebar';
+@import 'components/cards';
+@import 'components/badges';
+@import 'components/notifications';
+
+// Layout
+@import 'layout/layout';
+
+// Páginas
+@import 'pages/test'; 

@@ -1,0 +1,417 @@
+.card {
+  @include card;
+  @include flex(column, flex-start, stretch);
+  gap: $spacing-md;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+
+  // Cabeçalho do Card
+  .card-header {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid $border-color;
+
+    h3 {
+      @include font($font-size-lg, 600);
+      color: $text-primary;
+      margin: 0;
+    }
+
+    .card-actions {
+      @include flex(row, flex-end, center);
+      gap: $spacing-sm;
+    }
+  }
+
+  // Conteúdo do Card
+  .card-content {
+    flex: 1;
+    width: 100%;
+  }
+
+  // Rodapé do Card
+  .card-footer {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding-top: $spacing-sm;
+    border-top: 1px solid $border-color;
+  }
+
+  // Variantes
+  &.card-primary {
+    border-left: 4px solid $primary-color;
+  }
+
+  &.card-success {
+    border-left: 4px solid $success-color;
+  }
+
+  &.card-warning {
+    border-left: 4px solid $warning-color;
+  }
+
+  &.card-danger {
+    border-left: 4px solid $danger-color;
+  }
+
+  &.card-info {
+    border-left: 4px solid $info-color;
+  }
+
+  // Estados
+  &.card-hover {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &.card-loading {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba($bg-primary, 0.2),
+        transparent
+      );
+      animation: loading 1.5s infinite;
+    }
+  }
+}
+
+// Card de Artigo
+.article-card {
+  @include card;
+  @include flex(column, flex-start, stretch);
+  gap: $spacing-md;
+
+  .article-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: $border-radius;
+  }
+
+  .article-content {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-sm;
+
+    .article-title {
+      @include font($font-size-lg, 600);
+      color: $text-primary;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .article-excerpt {
+      @include font($font-size-sm);
+      color: $text-secondary;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .article-meta {
+      @include flex(row, space-between, center);
+      margin-top: $spacing-sm;
+
+      .article-date {
+        @include font($font-size-sm);
+        color: $text-disabled;
+      }
+
+      .article-category {
+        @include font($font-size-sm, 500);
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Card de Estatística
+.stats-card {
+  @include card;
+  @include flex(column, flex-start, stretch);
+  gap: $spacing-sm;
+
+  .stats-value {
+    @include font($font-size-2xl, 700);
+    color: $text-primary;
+    margin: 0;
+  }
+
+  .stats-label {
+    @include font($font-size-sm);
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  .stats-trend {
+    @include flex(row, flex-start, center);
+    gap: $spacing-xs;
+    margin-top: $spacing-sm;
+
+    &.trend-up {
+      color: $success-color;
+    }
+
+    &.trend-down {
+      color: $danger-color;
+    }
+
+    i {
+      font-size: 16px;
+    }
+
+    span {
+      @include font($font-size-sm, 500);
+    }
+  }
+}
+
+// Animações
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// Responsividade
+@include respond-to(sm) {
+  .card {
+    padding: $spacing-sm;
+  }
+
+  .article-card {
+    .article-image {
+      height: 150px;
+    }
+  }
+
+  .stats-card {
+    .stats-value {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+// Card de Dashboard Moderno
+.dashboard-card {
+  @include card;
+  @include flex(column, flex-start, stretch);
+  gap: $spacing-md;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, $bg-primary 0%, $bg-secondary 100%);
+  border: 1px solid rgba($border-color, 0.1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  // Cabeçalho do Card
+  .card-header {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid rgba($border-color, 0.1);
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba($primary-color, 0.1);
+      @include flex(row, center, center);
+      
+      i {
+        font-size: 20px;
+        color: $primary-color;
+      }
+    }
+
+    h3 {
+      @include font($font-size-lg, 600);
+      color: $text-primary;
+      margin: 0;
+      flex: 1;
+      margin-left: $spacing-sm;
+    }
+
+    .card-actions {
+      @include flex(row, flex-end, center);
+      gap: $spacing-sm;
+    }
+  }
+
+  // Conteúdo do Card
+  .card-content {
+    flex: 1;
+    width: 100%;
+    padding: $spacing-sm 0;
+  }
+
+  // Rodapé do Card
+  .card-footer {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding-top: $spacing-sm;
+    border-top: 1px solid rgba($border-color, 0.1);
+  }
+
+  // Variantes de Cor
+  &.card-primary {
+    .card-icon {
+      background: rgba($primary-color, 0.1);
+      i { color: $primary-color; }
+    }
+  }
+
+  &.card-success {
+    .card-icon {
+      background: rgba($success-color, 0.1);
+      i { color: $success-color; }
+    }
+  }
+
+  &.card-warning {
+    .card-icon {
+      background: rgba($warning-color, 0.1);
+      i { color: $warning-color; }
+    }
+  }
+
+  &.card-danger {
+    .card-icon {
+      background: rgba($danger-color, 0.1);
+      i { color: $danger-color; }
+    }
+  }
+
+  &.card-info {
+    .card-icon {
+      background: rgba($info-color, 0.1);
+      i { color: $info-color; }
+    }
+  }
+
+  // Elementos de Estatística
+  .stat-item {
+    @include flex(column, center, flex-start);
+    gap: $spacing-xs;
+    padding: $spacing-sm;
+    background: rgba($bg-primary, 0.5);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba($bg-primary, 0.8);
+    }
+
+    .stat-value {
+      @include font($font-size-2xl, 700);
+      color: $text-primary;
+      line-height: 1;
+    }
+
+    .stat-label {
+      @include font($font-size-sm);
+      color: $text-secondary;
+    }
+
+    .stat-trend {
+      @include flex(row, flex-start, center);
+      gap: $spacing-xs;
+      margin-top: $spacing-xs;
+
+      &.trend-up {
+        color: $success-color;
+      }
+
+      &.trend-down {
+        color: $danger-color;
+      }
+
+      i {
+        font-size: 16px;
+      }
+
+      span {
+        @include font($font-size-sm, 500);
+      }
+    }
+  }
+
+  // Lista de Itens
+  .item-list {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-sm;
+
+    .item {
+      @include flex(row, space-between, center);
+      padding: $spacing-sm;
+      background: rgba($bg-primary, 0.5);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba($bg-primary, 0.8);
+      }
+
+      .item-info {
+        @include flex(column, center, flex-start);
+        gap: $spacing-xs;
+
+        .item-title {
+          @include font($font-size-sm, 500);
+          color: $text-primary;
+        }
+
+        .item-subtitle {
+          @include font($font-size-xs);
+          color: $text-secondary;
+        }
+      }
+
+      .item-action {
+        @include flex(row, center, center);
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba($primary-color, 0.2);
+        }
+
+        i {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+} 

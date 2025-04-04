@@ -1,0 +1,145 @@
+// Tipografia base
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $text-primary;
+}
+
+// Títulos
+h1, h2, h3, h4, h5, h6 {
+  @include heading;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  @include heading(1);
+}
+
+h2 {
+  @include heading(2);
+}
+
+h3 {
+  @include heading(3);
+}
+
+// Parágrafos
+p {
+  margin-bottom: $spacing-md;
+  color: $text-secondary;
+}
+
+// Links
+a {
+  color: $primary-color;
+  text-decoration: none;
+  @include transition(color);
+
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+// Listas
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Texto pequeno
+small {
+  font-size: 0.875rem;
+  color: $text-light;
+}
+
+// Texto forte
+strong {
+  font-weight: 600;
+  color: $text-primary;
+}
+
+// Texto enfatizado
+em {
+  font-style: italic;
+}
+
+// Texto deletado
+del {
+  text-decoration: line-through;
+  color: $text-light;
+}
+
+// Texto inserido
+ins {
+  text-decoration: underline;
+  color: $success-color;
+}
+
+// Texto destacado
+mark {
+  background-color: lighten($warning-color, 40%);
+  color: darken($warning-color, 20%);
+  padding: 0.2em;
+  border-radius: $border-radius-sm;
+}
+
+// Código
+code {
+  font-family: monospace;
+  background-color: $bg-secondary;
+  padding: 0.2em 0.4em;
+  border-radius: $border-radius-sm;
+  font-size: 0.875em;
+}
+
+pre {
+  background-color: $bg-secondary;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  overflow-x: auto;
+  margin-bottom: $spacing-md;
+
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+// Citações
+blockquote {
+  border-left: 4px solid $primary-color;
+  padding-left: $spacing-md;
+  margin-left: 0;
+  margin-bottom: $spacing-md;
+  color: $text-secondary;
+  font-style: italic;
+}
+
+// Bordas
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// Responsivo
+@include respond-to(sm) {
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+}

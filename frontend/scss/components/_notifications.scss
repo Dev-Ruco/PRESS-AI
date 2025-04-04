@@ -1,0 +1,80 @@
+.notification-content {
+  @include flex(column, flex-start, stretch);
+  gap: $spacing-xs;
+  padding: $spacing-sm;
+
+  .notification-title {
+    @include font($font-size-sm, 600);
+    color: $text-primary;
+    margin: 0;
+  }
+
+  .notification-message {
+    @include font($font-size-sm);
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  .notification-timestamp {
+    @include font($font-size-sm);
+    color: $text-disabled;
+    margin: 0;
+  }
+}
+
+.dropdown-item {
+  @include flex(row, flex-start, center);
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  color: $text-primary;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: rgba($text-primary, 0.05);
+  }
+
+  i {
+    font-size: 20px;
+    color: $text-secondary;
+  }
+
+  .notification-content {
+    flex: 1;
+    padding: 0;
+  }
+
+  &.logout {
+    color: $danger-color;
+
+    i {
+      color: $danger-color;
+    }
+
+    &:hover {
+      background-color: rgba($danger-color, 0.05);
+    }
+  }
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: $border-color;
+  margin: $spacing-xs 0;
+}
+
+// Animações
+.notification-item {
+  @include fade-in(0.3s);
+}
+
+// Responsividade
+@include respond-to(sm) {
+  .notification-content {
+    padding: $spacing-xs;
+  }
+
+  .dropdown-item {
+    padding: $spacing-xs $spacing-sm;
+  }
+} 

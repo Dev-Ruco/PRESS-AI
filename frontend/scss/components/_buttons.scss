@@ -1,0 +1,155 @@
+// Variáveis de cores do sistema
+$primary-color: #2563eb;
+$primary-hover: #1d4ed8;
+$neutral-50: #f8fafc;
+$neutral-100: #f1f5f9;
+$neutral-200: #e2e8f0;
+$neutral-700: #334155;
+
+.primary-button {
+  background-color: #454545;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: 'Open Sans', sans-serif;
+
+  &:hover {
+    background-color: #191a1c;
+  }
+
+  .material-icons {
+    font-size: 16px;
+  }
+}
+
+.language-selector {
+  position: relative;
+
+  select {
+    appearance: none;
+    padding: 0.6rem 2.5rem 0.6rem 1rem;
+    border: 1px solid $neutral-200;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $neutral-700;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $neutral-50;
+      border-color: $neutral-200;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+  }
+
+  &::after {
+    content: '▼';
+    font-size: 0.8rem;
+    color: $neutral-700;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+// Variáveis
+$primary-blue: #2563eb;
+$hover-blue: #1d4ed8;
+
+.blue-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $primary-blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+
+    &:hover {
+        background-color: $hover-blue;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.15);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    // Ícone
+    .material-icons {
+        font-size: 20px;
+    }
+
+    // Texto
+    span {
+        letter-spacing: 0.3px;
+    }
+}
+
+// Botão secundário (se precisar)
+.secondary-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $neutral-50;
+    color: $primary-blue;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: white;
+        border-color: $primary-blue;
+    }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+
+    .header-actions {
+      padding: 0.4rem;
+      gap: 1rem;
+    }
+  }
+
+  .primary-button {
+    padding: 0.5rem 1.2rem;
+  }
+
+  .blue-button, .secondary-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    
+    .material-icons {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sistema de Gestão Editorial NewsPress">
+  <title>NewsPress - Painel Editorial</title>
+
+  <!-- Fontes e ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../Sistema/css/inicio.css">
+  <link rel="stylesheet" href="../Sistema/css/novo_artigo.css">
+  <link rel="stylesheet" href="../Sistema/css/components.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="../../imagens/NewsPress_Logo.png" alt="NewsPress" class="logo-img">
+        </a>
+      </div>
+
+      <div class="header-right">
+        <div class="notification-wrapper" data-dropdown="notifications">
+          <button class="notification-button" aria-label="Notificações">
+            <i class="material-icons icon">notifications</i>
+            <span class="badge" aria-label="3 notificações">3</span>
+          </button>
+          <div class="dropdown notifications-dropdown" id="notificationsDropdown" aria-hidden="true">
+            <div class="dropdown-item">
+              <i class="material-icons">article</i>
+              <div class="notification-content">
+                <span>Novo artigo publicado</span>
+                <small class="timestamp">agora mesmo</small>
+              </div>
+            </div>
+            <div class="dropdown-item">
+              <i class="material-icons">mail</i>
+              <span>Mensagem do editor</span>
+              <small class="timestamp">2h atrás</small>
+            </div>
+            <div class="dropdown-item">
+              <i class="material-icons">check_circle</i>
+              <span>Aprovação pendente</span>
+              <small class="timestamp">ontem</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="account" data-dropdown="profile">
+          <button class="profile-button" aria-label="Menu do perfil">
+            <img src="https://i.pravatar.cc/150?img=3" alt="Foto do usuário">
+            <span class="account-name">Felisberto Ruco</span>
+          </button>
+          <div class="dropdown profile-dropdown" id="accountDropdown" aria-hidden="true">
+            <div class="dropdown-item">
+              <i class="material-icons">person</i>
+              <a href="#">Ver Perfil <i class="material-icons arrow">chevron_right</i></a>
+            </div>
+            <div class="dropdown-item">
+              <i class="material-icons">settings</i>
+              <a href="#">Configurações <i class="material-icons arrow">chevron_right</i></a>
+            </div>
+            <div class="dropdown-item">
+              <i class="material-icons">help_outline</i>
+              <a href="#">Ajuda <i class="material-icons arrow">chevron_right</i></a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item logout">
+              <i class="material-icons">logout</i>
+              <a href="#">Sair</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Principal -->
+  <div class="layout-wrapper">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <nav class="menu" aria-label="Menu principal">
+        <a href="#/dashboard" class="menu-item active" aria-current="page">
+          <i class="material-icons">dashboard</i>
+          <span>Painel Editorial</span>
+        </a>
+        <a href="#/novo" class="menu-item"><i class="material-icons">edit</i><span>Novo Artigo</span></a>
+        <a href="#" class="menu-item"><i class="material-icons">article</i><span>Artigos em Curso</span></a>
+        <a href="#" class="menu-item"><i class="material-icons">inbox</i><span>Conteúdos Recebidos</span></a>
+        <a href="#" class="menu-item"><i class="material-icons">folder</i><span>Arquivo</span></a>
+        <a href="#" class="menu-item"><i class="material-icons">event</i><span>Agenda</span></a>
+        <a href="#" class="menu-item"><i class="material-icons">bar_chart</i><span>Estatísticas</span></a>
+        <a href="#" class="menu-item"><i class="material-icons">history</i><span>Histórico</span></a>
+        <a href="#" class="menu-item"><i class="material-icons">settings</i><span>Critérios Editoriais</span></a>
+      </nav>
+    </aside>
+
+    <!-- ÁREA DINÂMICA SPA -->
+    <main id="app" class="dashboard-container">
+      <!-- Conteúdo dinâmico será carregado aqui -->
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="../Sistema/js/router.js"></script>
+  <script type="module" src="../Sistema/js/inicio.js"></script>
+  <script type="module" src="../Sistema/js/components/notifications.js"></script>
+  <script type="module" src="../Sistema/js/components/dropdown.js"></script>
+</body>
+</html>

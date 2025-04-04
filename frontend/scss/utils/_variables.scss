@@ -1,0 +1,65 @@
+// Cores
+$primary-color: #2196F3;
+$secondary-color: #FFC107;
+$success-color: #4CAF50;
+$danger-color: #F44336;
+$warning-color: #FF9800;
+$info-color: #00BCD4;
+
+// Cores de texto
+$text-primary: #212121;
+$text-secondary: #757575;
+$text-disabled: #9E9E9E;
+
+// Cores de fundo
+$bg-primary: #FFFFFF;
+$bg-secondary: #F5F5F5;
+$bg-tertiary: #EEEEEE;
+
+// Cores de borda
+$border-color: #E0E0E0;
+$border-radius: 8px;
+
+// Tipografia
+$font-family-base: 'Open Sans', sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-2xl: 32px;
+
+// Espaçamento
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Sombras
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+// Transições
+$transition-base: all 0.2s ease-in-out;
+$transition-fast: all 0.1s ease-in-out;
+$transition-slow: all 0.3s ease-in-out;
+
+// Container
+$container-max-width: 1200px;
+$container-padding: $spacing-md;

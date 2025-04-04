@@ -1,0 +1,19 @@
+{
+  "name": "press-ai-frontend",
+  "version": "1.0.0",
+  "description": "Frontend da aplicação Press AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,46 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 16rem;
+  padding: $spacing-xl;
+  background-color: $bg-secondary;
+  min-height: calc(100vh - 4rem);
+
+  .container {
+    @include container;
+  }
+
+  h1 {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.cards-grid {
+  @include grid(2, $spacing-lg);
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include respond-to(sm) {
+  .main-content {
+    margin-left: 18rem;
+    padding: $spacing-xl;
+    min-height: calc(100vh - 4.5rem);
+  }
+}
+
+.dashboard-container {
+    margin-top: 80px; // espaço para o header fixo
+    padding: 2rem;
+    
+    @media (max-width: 768px) {
+        margin-top: 65px;
+        padding: 1rem;
+    }
+}

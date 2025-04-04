@@ -1,0 +1,129 @@
+.main-header {
+  @include position(sticky, 0, null, null, 0);
+  z-index: $z-index-sticky;
+  background-color: $bg-primary;
+  box-shadow: $shadow-sm;
+
+  .container {
+    @include flex(row, space-between, center);
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $spacing-md $container-padding;
+  }
+
+  .logo {
+    a {
+      display: block;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  .header-right {
+    @include flex(row, flex-end, center);
+    gap: $spacing-md;
+  }
+
+  .notification-wrapper {
+    @include position(relative);
+
+    .notification-button {
+      @include button(transparent, $text-primary);
+      position: relative;
+      padding: $spacing-sm;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: rgba($text-primary, 0.05);
+      }
+
+      .icon {
+        font-size: 24px;
+      }
+
+      .badge {
+        @include position(absolute, -5px, -5px);
+        background-color: $danger-color;
+        color: white;
+        font-size: $font-size-sm;
+        padding: 2px 6px;
+        border-radius: 10px;
+        min-width: 18px;
+        text-align: center;
+      }
+    }
+
+    .notifications-dropdown {
+      @include dropdown;
+      right: 0;
+      top: calc(100% + $spacing-sm);
+      min-width: 300px;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .account {
+    @include position(relative);
+
+    .profile-button {
+      @include flex(row, flex-start, center);
+      gap: $spacing-sm;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: 20px;
+      transition: $transition-base;
+
+      &:hover {
+        background-color: rgba($text-primary, 0.05);
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .account-name {
+        @include font($font-size-sm, 500);
+        color: $text-primary;
+      }
+    }
+
+    .profile-dropdown {
+      @include dropdown;
+      right: 0;
+      top: calc(100% + $spacing-sm);
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Responsividade
+@include respond-to(sm) {
+  .main-header {
+    .container {
+      padding: $spacing-sm $container-padding;
+    }
+
+    .logo .logo-img {
+      height: 32px;
+    }
+
+    .account .profile-button .account-name {
+      display: none;
+    }
+  }
+} 
