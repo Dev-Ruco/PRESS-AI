@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press AI</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Botão do Menu Mobile -->
+            <button class="menu-toggle" id="menuToggle">
+                <span class="material-icons">menu</span>
+            </button>
+
+            <div class="logo">
+                <img src="assets/imagens/logo.png" alt="Logo Press AI" class="logo-img" />
+                <span class="logo-text">Press AI</span>
+            </div>
+
+            <div class="header-right">
+                <button class="primary-button" id="newArticleBtn">
+                    <span class="material-icons">note_add</span>
+                    <span>Novo Artigo</span>
+                </button>
+
+                <div class="account">
+                    <div class="profile-image">
+                        <span class="material-icons">person</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overlay para menu mobile -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Layout Principal -->
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="menu">
+                <!-- Seção Principal -->
+                <div class="menu-section">
+                    <a href="#/dashboard" class="menu-item active">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#/novo-artigo" class="menu-item">
+                        <i class="material-icons">edit</i>
+                        <span>Novo Artigo</span>
+                    </a>
+                    <a href="#/reformular" class="menu-item">
+                        <i class="material-icons">auto_fix_high</i>
+                        <span>Reformular Artigo</span>
+                    </a>
+                    <a href="#/transcricao" class="menu-item">
+                        <i class="material-icons">record_voice_over</i>
+                        <span>Transcrição</span>
+                    </a>
+                    <a href="#/conexoes" class="menu-item">
+                        <i class="material-icons">link</i>
+                        <span>Conexões Externas</span>
+                    </a>
+                    <a href="#/notificacoes" class="menu-item">
+                        <i class="material-icons">notifications</i>
+                        <span>Notificações</span>
+                        <span class="badge">3</span>
+                    </a>
+                </div>
+
+                <!-- Seção Artigos -->
+                <div class="menu-section">
+                    <h3 class="menu-title">Artigos</h3>
+                    <a href="#/em-producao" class="menu-item">
+                        <i class="material-icons">article</i>
+                        <span>Em Produção</span>
+                    </a>
+                    <a href="#/revisao" class="menu-item">
+                        <i class="material-icons">rate_review</i>
+                        <span>Revisão</span>
+                    </a>
+                    <a href="#/publicados" class="menu-item">
+                        <i class="material-icons">published_with_changes</i>
+                        <span>Publicados</span>
+                    </a>
+                    <a href="#/arquivo" class="menu-item">
+                        <i class="material-icons">folder</i>
+                        <span>Arquivo</span>
+                    </a>
+                </div>
+
+                <!-- Seção Análise -->
+                <div class="menu-section">
+                    <h3 class="menu-title">Análise</h3>
+                    <a href="#/desempenho" class="menu-item">
+                        <i class="material-icons">analytics</i>
+                        <span>Desempenho</span>
+                    </a>
+                    <a href="#/relatorios" class="menu-item">
+                        <i class="material-icons">assessment</i>
+                        <span>Relatórios</span>
+                    </a>
+                    <a href="#/insights" class="menu-item">
+                        <i class="material-icons">psychology</i>
+                        <span>Insights IA</span>
+                    </a>
+                    <a href="#/tendencias" class="menu-item">
+                        <i class="material-icons">trending_up</i>
+                        <span>Tendências</span>
+                    </a>
+                </div>
+
+                <!-- Seção Configurações -->
+                <div class="menu-section">
+                    <h3 class="menu-title">Configurações</h3>
+                    <a href="#/preferencias" class="menu-item">
+                        <i class="material-icons">settings</i>
+                        <span>Preferências</span>
+                    </a>
+                    <a href="#/integracoes" class="menu-item">
+                        <i class="material-icons">integration_instructions</i>
+                        <span>Integrações</span>
+                    </a>
+                    <a href="#/ajuda" class="menu-item">
+                        <i class="material-icons">help</i>
+                        <span>Ajuda</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Área de Trabalho -->
+        <main class="content-wrapper">
+            <div id="main-content">
+                <!-- O conteúdo será carregado aqui dinamicamente -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
