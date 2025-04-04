@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <span>Press AI</span>
+        </div>
+        
+        <div class="header-actions">
+            <button class="new-article-btn">
+                <i class="fas fa-plus"></i>
+                <span>Novo Artigo</span>
+            </button>
+            
+            <div class="profile-dropdown">
+                <div class="profile-btn">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-menu">
+                    <div class="profile-info">
+                        <h4>Seu Nome</h4>
+                        <p>seu.email@exemplo.com</p>
+                    </div>
+                    <div class="profile-links">
+                        <a href="/perfil"><i class="fas fa-user-circle"></i> Perfil</a>
+                        <a href="/configuracoes"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <!-- Conteúdo principal aqui -->
+    </main>
+
+    <script>
+        // Adicionar interatividade ao dropdown do perfil
+        document.querySelector('.profile-btn').addEventListener('click', function() {
+            document.querySelector('.profile-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 
