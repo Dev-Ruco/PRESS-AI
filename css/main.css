@@ -58,7 +58,8 @@ body {
     display: flex;
     min-height: 100vh;
     padding-top: var(--header-height);
-    background: var(--bg-white);
+    background: #f9fafb;
+    width: 100%;
 }
 
 /* Container Principal (Área de Trabalho) */
@@ -66,10 +67,11 @@ body {
     flex: 1;
     margin-left: var(--sidebar-width);
     transition: all var(--transition-normal);
-    background: var(--bg-white);
+    background: #f9fafb;
     min-height: calc(100vh - var(--header-height));
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
+    width: 100%;
 }
 
 /* Quando o menu está recolhido */
@@ -80,22 +82,32 @@ body {
 
 /* Container do Conteúdo */
 .content-wrapper {
-    height: 100%;
-    padding: 2rem;
-    overflow-y: auto;
-    background: var(--bg-white);
+    height: auto;
+    min-height: 100%;
+    padding: 1.5rem;
+    background: #f9fafb;
+    width: 100%;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
+    .app-layout {
+        padding-top: var(--header-height);
+        width: 100%;
+        overflow-x: hidden;
+    }
+
     .main-content {
         margin-left: 0;
-        background: var(--bg-white);
+        width: 100%;
+        min-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
+        padding: 0;
     }
     
-    .sidebar.collapsed ~ .main-content {
-        margin-left: 0;
-        background: var(--bg-white);
+    .content-wrapper {
+        padding: 1rem;
+        width: 100%;
     }
 }
 
