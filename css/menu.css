@@ -152,6 +152,11 @@
         font-size: 1.5rem;
         opacity: 1;
     }
+
+    /* Garantir que o overlay não apareça no desktop */
+    .mobile-overlay {
+        display: none !important;
+    }
 }
 
 /* Mobile Menu e Overlay */

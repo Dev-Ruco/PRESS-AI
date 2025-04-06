@@ -1,0 +1,279 @@
+/* Dashboard */
+.dashboard {
+    min-height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Card Principal de Boas-vindas */
+.welcome-card {
+    background: var(--bg-white);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    text-align: center;
+}
+
+.welcome-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.welcome-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.welcome-content h1 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.welcome-content p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.primary-action {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-action:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.primary-action.outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.primary-action.outline:hover {
+    background: var(--primary-light);
+}
+
+/* Removendo a ilustração */
+.welcome-illustration {
+    display: none;
+}
+
+/* Cards de Acesso Rápido */
+.quick-access {
+    margin-top: 1rem;
+}
+
+.quick-access h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.quick-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.quick-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.quick-card .material-icons {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.quick-card h3 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.quick-card p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Estatísticas */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+    background: var(--primary-light);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon .material-icons {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-info h3 {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.stat-change {
+    font-size: 0.75rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.stat-change.positive {
+    color: var(--success);
+}
+
+.stat-change.negative {
+    color: var(--danger);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 1rem;
+    }
+    
+    .welcome-card {
+        padding: 1.25rem;
+    }
+
+    .welcome-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .primary-action {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .quick-access-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Container Principal (Área de Trabalho) */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    transition: all var(--transition-normal);
+    background: #f9fafb;
+    height: calc(100vh - var(--header-height));
+    position: relative;
+    overflow-y: auto;
+}
+
+/* Quando o menu está recolhido */
+.sidebar.collapsed ~ .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+    background: #f9fafb;
+}
+
+/* Container do Conteúdo */
+.content-wrapper {
+    height: auto;
+    min-height: 100%;
+    padding: 1.5rem;
+    background: #f9fafb;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        height: calc(100vh - var(--header-height));
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .content-wrapper {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .dashboard {
+        padding: 1rem;
+    }
+} 
