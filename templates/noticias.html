@@ -1,0 +1,316 @@
+<!-- Template de Últimas Notícias -->
+<div class="noticias-container">
+    <div class="page-header">
+        <h1><span class="material-icons">search</span> Últimas Notícias</h1>
+        <p class="page-description">Monitore as notícias mais recentes de diversas fontes</p>
+        
+        <!-- Abas de navegação -->
+        <div class="page-tabs">
+            <button class="tab-button active" data-tab="noticias">
+                <span class="material-icons">article</span>
+                Notícias
+            </button>
+            <button class="tab-button" data-tab="fontes">
+                <span class="material-icons">rss_feed</span>
+                Fontes de Notícias
+            </button>
+            <button class="tab-button" data-tab="configuracoes">
+                <span class="material-icons">settings</span>
+                Configurações
+            </button>
+        </div>
+    </div>
+
+    <!-- Tab de Notícias -->
+    <div class="tab-content active" id="tab-noticias">
+        <div class="filtros-container">
+            <div class="filtro-grupo">
+                <label for="filtroCategoria">Categoria:</label>
+                <select id="filtroCategoria" class="filtro-select">
+                    <option value="">Todas</option>
+                    <option value="Política">Política</option>
+                    <option value="Economia">Economia</option>
+                    <option value="Cultura">Cultura</option>
+                    <option value="Esportes">Esportes</option>
+                </select>
+            </div>
+            <div class="filtro-grupo">
+                <label for="filtroFonte">Fonte:</label>
+                <select id="filtroFonte" class="filtro-select">
+                    <option value="">Todas</option>
+                    <option value="Lusa">Lusa</option>
+                    <option value="DW">DW</option>
+                    <option value="Carta de Moçambique">Carta de Moçambique</option>
+                </select>
+            </div>
+            <div class="filtro-grupo busca">
+                <input type="text" id="buscaNoticia" placeholder="Buscar notícias..." class="busca-input">
+                <button class="busca-btn"><span class="material-icons">search</span></button>
+            </div>
+        </div>
+
+        <div class="noticias-lista" id="noticiasLista">
+            <!-- As notícias serão inseridas aqui dinamicamente pelo JavaScript -->
+        </div>
+
+        <template id="noticiaTemplate">
+            <div class="noticia-card">
+                <div class="noticia-meta">
+                    <span class="noticia-categoria">Categoria</span>
+                    <span class="noticia-fonte">Fonte</span>
+                </div>
+                <h2 class="noticia-titulo">Título da notícia</h2>
+                <div class="noticia-info">
+                    <div class="noticia-tempo">
+                        <span class="material-icons">access_time</span>
+                        <span class="noticia-hora">00:00</span>
+                        <span class="noticia-data">01/01/2025</span>
+                    </div>
+                    <button class="noticia-reformular">
+                        <span class="material-icons">autorenew</span>
+                        Reformular
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <div class="paginacao">
+            <button class="paginacao-btn" id="paginaAnterior" disabled>
+                <span class="material-icons">chevron_left</span>
+                Anterior
+            </button>
+            <div class="pagina-indicador">
+                Página <span id="paginaAtual">1</span> de <span id="paginaTotal">5</span>
+            </div>
+            <button class="paginacao-btn" id="proximaPagina">
+                Próxima
+                <span class="material-icons">chevron_right</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Tab de Fontes de Notícias -->
+    <div class="tab-content" id="tab-fontes">
+        <div class="fontes-container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Fontes de Notícias Monitoradas</h2>
+                    <button id="btnAdicionarFonte" class="btn-secundario">
+                        <span class="material-icons">add</span>
+                        Adicionar Fonte
+                    </button>
+                </div>
+                <div class="card-content">
+                    <div class="fontes-lista" id="fontesLista">
+                        <!-- Lista de fontes será carregada dinamicamente -->
+                    </div>
+
+                    <!-- Template para cada item de fonte -->
+                    <template id="fonteItemTemplate">
+                        <div class="fonte-item">
+                            <div class="fonte-info">
+                                <div class="fonte-titulo">Nome da Fonte</div>
+                                <div class="fonte-url">https://exemplo.com/rss</div>
+                                <div class="fonte-meta">
+                                    <span class="fonte-categoria">Categoria</span>
+                                    <span class="fonte-status ativo">Ativo</span>
+                                </div>
+                            </div>
+                            <div class="fonte-acoes">
+                                <button class="btn-icone editar-fonte">
+                                    <span class="material-icons">edit</span>
+                                </button>
+                                <button class="btn-icone pausar-fonte">
+                                    <span class="material-icons">pause</span>
+                                </button>
+                                <button class="btn-icone excluir-fonte">
+                                    <span class="material-icons">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Formulário de adição/edição de fonte (inicialmente oculto) -->
+                    <div class="fonte-form" id="fonteForm" style="display: none;">
+                        <h3 id="formTitulo">Adicionar Nova Fonte</h3>
+                        <div class="form-grupo">
+                            <label for="fonteTitulo">Nome da Fonte:</label>
+                            <input type="text" id="fonteTitulo" placeholder="Ex: Jornal Nacional">
+                        </div>
+                        <div class="form-grupo">
+                            <label for="fonteUrl">URL da Fonte (RSS ou Site):</label>
+                            <input type="text" id="fonteUrl" placeholder="https://exemplo.com/rss">
+                        </div>
+                        <div class="form-grupo">
+                            <label for="fonteCategoria">Categoria:</label>
+                            <select id="fonteCategoria">
+                                <option value="Geral">Geral</option>
+                                <option value="Política">Política</option>
+                                <option value="Economia">Economia</option>
+                                <option value="Tecnologia">Tecnologia</option>
+                                <option value="Ciência">Ciência</option>
+                                <option value="Saúde">Saúde</option>
+                                <option value="Esportes">Esportes</option>
+                                <option value="Entretenimento">Entretenimento</option>
+                                <option value="Internacional">Internacional</option>
+                            </select>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="fonteFrequencia">Frequência de Monitoramento:</label>
+                            <select id="fonteFrequencia">
+                                <option value="5">A cada 5 minutos</option>
+                                <option value="15">A cada 15 minutos</option>
+                                <option value="30" selected>A cada 30 minutos</option>
+                                <option value="60">A cada hora</option>
+                                <option value="360">A cada 6 horas</option>
+                                <option value="720">A cada 12 horas</option>
+                                <option value="1440">Diariamente</option>
+                            </select>
+                        </div>
+                        <div class="form-acoes">
+                            <button id="btnCancelarFonte" class="btn-secundario">Cancelar</button>
+                            <button id="btnSalvarFonte" class="btn-primario">Salvar Fonte</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats de monitoramento -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Estatísticas de Monitoramento</h2>
+                </div>
+                <div class="card-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-valor">24</div>
+                            <div class="stat-titulo">Fontes Ativas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-valor">142</div>
+                            <div class="stat-titulo">Notícias Hoje</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-valor">37</div>
+                            <div class="stat-titulo">Atualizações Pendentes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-valor">5min</div>
+                            <div class="stat-titulo">Última Verificação</div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button id="btnVerificarAgora" class="btn-primario">
+                            <span class="material-icons">sync</span>
+                            Verificar Todas Agora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab de Configurações -->
+    <div class="tab-content" id="tab-configuracoes">
+        <div class="config-container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Configurações do Monitor de Notícias</h2>
+                </div>
+                <div class="card-content">
+                    <div class="config-grid">
+                        <div class="config-grupo">
+                            <h3>Notificações</h3>
+                            <div class="config-opcao">
+                                <label class="switch">
+                                    <input type="checkbox" id="configNotificacoes" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <div class="config-label">Receber alertas de novas notícias</div>
+                            </div>
+                            <div class="config-opcao">
+                                <label class="switch">
+                                    <input type="checkbox" id="configEmailNotificacoes">
+                                    <span class="slider"></span>
+                                </label>
+                                <div class="config-label">Receber alertas por email</div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-grupo">
+                            <h3>Fontes</h3>
+                            <div class="config-opcao">
+                                <label class="switch">
+                                    <input type="checkbox" id="configAtualizacaoAutomatica" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <div class="config-label">Atualizar fontes automaticamente</div>
+                            </div>
+                            <div class="config-select">
+                                <label for="configFormatoDefault">Formato padrão para novas fontes:</label>
+                                <select id="configFormatoDefault">
+                                    <option value="rss">RSS/Atom</option>
+                                    <option value="html">HTML (Scraping)</option>
+                                    <option value="api">API</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="config-grupo">
+                            <h3>Idiomas</h3>
+                            <div class="config-select">
+                                <label for="configIdiomaPrincipal">Idioma principal:</label>
+                                <select id="configIdiomaPrincipal">
+                                    <option value="pt-BR">Português (Brasil)</option>
+                                    <option value="pt-PT">Português (Portugal)</option>
+                                    <option value="en">Inglês</option>
+                                    <option value="es">Espanhol</option>
+                                    <option value="fr">Francês</option>
+                                </select>
+                            </div>
+                            <div class="config-opcao">
+                                <label class="switch">
+                                    <input type="checkbox" id="configTraducaoAutomatica" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <div class="config-label">Traduzir notícias automaticamente para o idioma principal</div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-grupo">
+                            <h3>Armazenamento</h3>
+                            <div class="config-select">
+                                <label for="configRetencao">Período de retenção de notícias:</label>
+                                <select id="configRetencao">
+                                    <option value="7">7 dias</option>
+                                    <option value="14">14 dias</option>
+                                    <option value="30" selected>30 dias</option>
+                                    <option value="90">90 dias</option>
+                                    <option value="0">Ilimitado</option>
+                                </select>
+                            </div>
+                            <div class="config-opcao">
+                                <button id="btnLimparCache" class="btn-secundario">
+                                    <span class="material-icons">cleaning_services</span>
+                                    Limpar Cache
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="config-acoes">
+                        <button id="btnSalvarConfiguracoes" class="btn-primario">
+                            <span class="material-icons">save</span>
+                            Salvar Configurações
+                        </button>
+                        <button id="btnResetarConfiguracoes" class="btn-secundario">
+                            <span class="material-icons">restore</span>
+                            Restaurar Padrões
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

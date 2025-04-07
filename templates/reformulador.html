@@ -1,0 +1,116 @@
+<!-- Template de Reformulação de Conteúdo -->
+<div class="reformulador-container">
+    <div class="page-header">
+        <h1><span class="material-icons">auto_fix_high</span> Reformular Conteúdo</h1>
+        <p class="page-description">Transforme e adapte conteúdos existentes para diferentes formatos e estilos</p>
+    </div>
+
+    <div class="reformulador-content">
+        <!-- Área de entrada do conteúdo original -->
+        <div class="conteudo-original">
+            <div class="card-header">
+                <h2>Conteúdo Original</h2>
+                <div class="origem-info" id="origemInfo">
+                    <!-- Informações da origem serão exibidas aqui -->
+                </div>
+            </div>
+            <div class="editor-container" id="editorOriginal">
+                <textarea id="conteudoOriginal" placeholder="Cole ou digite o conteúdo que deseja reformular..."></textarea>
+            </div>
+        </div>
+
+        <!-- Opções de reformulação -->
+        <div class="opcoes-reformulacao">
+            <div class="card-header">
+                <h2>Opções de Reformulação</h2>
+            </div>
+            <div class="opcoes-container">
+                <div class="opcao-grupo">
+                    <label>Estilo de Escrita:</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="estilo" value="formal" checked>
+                            <span>Formal</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="estilo" value="informal">
+                            <span>Informal</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="estilo" value="tecnico">
+                            <span>Técnico</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="opcao-grupo">
+                    <label>Extensão do Texto:</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="extensao" value="resumido">
+                            <span>Resumido</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="extensao" value="original" checked>
+                            <span>Original</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="extensao" value="detalhado">
+                            <span>Detalhado</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="opcao-grupo">
+                    <label>Tom da Mensagem:</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="tom" value="neutro" checked>
+                            <span>Neutro</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tom" value="persuasivo">
+                            <span>Persuasivo</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tom" value="educativo">
+                            <span>Educativo</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="opcao-grupo">
+                    <label for="customInstrucoes">Instruções Adicionais:</label>
+                    <textarea id="customInstrucoes" placeholder="Informe quaisquer instruções específicas para a reformulação..."></textarea>
+                </div>
+
+                <div class="acoes">
+                    <button id="btnReformular" class="btn-reformular">
+                        <span class="material-icons">autorenew</span>
+                        Reformular Conteúdo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultado da reformulação -->
+        <div class="conteudo-reformulado" id="areaResultado" style="display: none;">
+            <div class="card-header">
+                <h2>Conteúdo Reformulado</h2>
+                <div class="acoes-resultado">
+                    <button id="btnCopiar" class="btn-secundario">
+                        <span class="material-icons">content_copy</span>
+                        Copiar
+                    </button>
+                    <button id="btnExportar" class="btn-secundario">
+                        <span class="material-icons">download</span>
+                        Exportar
+                    </button>
+                </div>
+            </div>
+            <div class="editor-container resultado">
+                <div id="conteudoReformulado" class="resultado-texto"></div>
+            </div>
+        </div>
+    </div>
+</div>
