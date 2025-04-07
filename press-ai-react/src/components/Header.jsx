@@ -11,7 +11,7 @@ export default function Header({ onToggleSidebar }) {
           >
             <FiMenu className="w-5 h-5" />
           </button>
-          <span className="text-xl font-semibold text-primary-600">Press AI</span>
+          <span className="text-xl font-semibold text-primary-600">Press AI - Seu Assistente de Conteúdo</span>
         </div>
         
         <div className="flex items-center gap-4">
