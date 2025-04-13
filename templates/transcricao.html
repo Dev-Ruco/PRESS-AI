@@ -1,0 +1,52 @@
+<!-- Template de Transcrição de Áudio -->
+<div class="transcricao-container">
+  <div class="page-header">
+    <h1><span class="material-icons">graphic_eq</span> Transcrever Arquivo</h1>
+    <p class="page-description">Converta áudio e vídeo em texto com precisão</p>
+  </div>
+
+  <div class="card">
+    <!-- Upload -->
+    <div class="upload-area" onclick="document.getElementById('audioInput').click()">
+      <span class="material-icons upload-icon">cloud_upload</span>
+      <p>Carregar áudio ou vídeo (MP3, MP4, WAV, etc)</p>
+      <input type="file" id="audioInput" accept="audio/*,video/*" style="display:none" onchange="handleFileUpload(event)">
+      <div id="filePreview" class="file-preview"></div>
+    </div>
+
+    <!-- Idioma -->
+    <div class="form-group">
+      <label for="idioma">Idioma do Áudio</label>
+      <select id="idioma">
+        <option selected>Português (🇲🇿)</option>
+        <option>Português (🇧🇷)</option>
+        <option>Inglês (🇬🇧)</option>
+        <option>Francês (🇫🇷)</option>
+      </select>
+    </div>
+
+    <!-- Modo de Transcrição -->
+    <div class="form-group">
+      <label>Modo de Transcrição</label>
+      <div class="mode-options">
+        <div class="mode-btn active" onclick="selectMode(this, 'cheetah')">🐆 Cheetah<br><small>Mais Rápido</small></div>
+        <div class="mode-btn" onclick="selectMode(this, 'dolphin')">🐬 Dolphin<br><small>Equilibrado</small></div>
+        <div class="mode-btn" onclick="selectMode(this, 'whale')">🐋 Whale<br><small>Mais Preciso</small></div>
+      </div>
+    </div>
+
+    <!-- Avançado -->
+    <button class="advanced-btn" onclick="toggleAdvanced()">
+      <span class="material-icons">settings</span> Reconhecimento de Voz & Avançado
+    </button>
+
+    <div class="advanced-settings" id="advancedSettings">
+      <label><input type="checkbox" checked/> Reconhecer múltiplos interlocutores</label>
+      <label><input type="checkbox"/> Corrigir automaticamente pontuação</label>
+      <label><input type="checkbox"/> Realçar palavras-chave</label>
+    </div>
+
+    <!-- Botão -->
+    <button class="transcribe-btn" onclick="startTranscription()">Transcrever</button>
+  </div>
+</div> 

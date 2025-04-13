@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Press AI</title>
-    <link rel="icon" href="assets/imagens/favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header.css">
@@ -12,11 +11,9 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <!-- Estilos específicos de páginas -->
     <link rel="stylesheet" href="css/pages/artigos.css">
+    <link rel="stylesheet" href="css/pages/editor.css">
     <link rel="stylesheet" href="css/pages/transcricao.css">
-    <link rel="stylesheet" href="css/pages/analise.css">
-    <link rel="stylesheet" href="css/pages/integracoes.css">
 </head>
 <body>
     <!-- Header -->
@@ -37,6 +34,47 @@
                     <span class="material-icons">add</span>
                     <span>Novo Artigo</span>
                 </button>
+
+                <div class="upload-dropdown" id="uploadMenu">
+                    <div class="upload-section">
+                        <h3>Documentos</h3>
+                        <div class="upload-options">
+                            <div class="upload-option" onclick="handleFileUpload('document')">
+                                <span class="material-icons">upload_file</span>
+                                <span>Upload de Arquivo</span>
+                            </div>
+                            <div class="upload-option" onclick="handleGoogleDrive()">
+                                <span class="material-icons">cloud</span>
+                                <span>Google Drive</span>
+                            </div>
+                            <div class="upload-option" onclick="handleDropbox()">
+                                <span class="material-icons">cloud</span>
+                                <span>Dropbox</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <h3>Mídia</h3>
+                        <div class="upload-options">
+                            <div class="upload-option" onclick="handleFileUpload('image')">
+                                <span class="material-icons">image</span>
+                                <span>Upload de Imagem</span>
+                            </div>
+                            <div class="upload-option" onclick="handleFileUpload('audio')">
+                                <span class="material-icons">audio_file</span>
+                                <span>Upload de Áudio</span>
+                            </div>
+                            <div class="upload-option" onclick="handleAudioRecord()">
+                                <span class="material-icons">mic</span>
+                                <span>Gravar Áudio</span>
+                            </div>
+                            <div class="upload-option" onclick="handleVideoRecord()">
+                                <span class="material-icons">videocam</span>
+                                <span>Gravar Vídeo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="account">
                     <div class="profile-image">
@@ -111,20 +149,193 @@
         <!-- Conteúdo Principal -->
         <main class="main-content">
             <div class="content-wrapper">
-                <!-- O conteúdo será carregado dinamicamente aqui -->
+                <!-- Dashboard -->
+                <div class="dashboard">
+                    <!-- Card Principal de Boas-vindas -->
+                    <div class="welcome-card">
+                        <div class="welcome-content">
+                            <h1>Bem-vindo ao Press AI</h1>
+                            <p>O que você gostaria de fazer hoje?</p>
+                            <div class="welcome-actions">
+                                <button class="primary-action">
+                                    <span class="material-icons">edit</span>
+                                    Gerar Novo Artigo
+                                </button>
+                                <button class="primary-action outline">
+                                    <span class="material-icons">auto_fix_high</span>
+                                    Reformular Artigo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cards de Acesso Rápido -->
+                    <div class="quick-access">
+                        <h2>Acesso Rápido</h2>
+                        <div class="quick-access-grid">
+                            <a href="#/transcrever" class="quick-card">
+                                <span class="material-icons">record_voice_over</span>
+                                <h3>Transcrever Áudio</h3>
+                                <p>Converta áudio em texto rapidamente</p>
+                            </a>
+                            <a href="#/ultimas" class="quick-card">
+                                <span class="material-icons">article</span>
+                                <h3>Últimas Notícias</h3>
+                                <p>Veja os artigos mais recentes</p>
+                            </a>
+                            <a href="#/analise" class="quick-card">
+                                <span class="material-icons">analytics</span>
+                                <h3>Análise Editorial</h3>
+                                <p>Métricas e insights dos seus artigos</p>
+                            </a>
+                            <a href="#/gestao" class="quick-card">
+                                <span class="material-icons">folder_open</span>
+                                <h3>Gestão de Artigos</h3>
+                                <p>Organize seus conteúdos</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Estatísticas -->
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <span class="material-icons">article</span>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Artigos Hoje</h3>
+                                <p class="stat-number">12</p>
+                                <p class="stat-change positive">+2 do que ontem</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <span class="material-icons">schedule</span>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Tempo Médio</h3>
+                                <p class="stat-number">45min</p>
+                                <p class="stat-change negative">-5min do que ontem</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <span class="material-icons">trending_up</span>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Engajamento</h3>
+                                <p class="stat-number">78%</p>
+                                <p class="stat-change positive">+3% do que ontem</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <span class="material-icons">auto_fix_high</span>
+                            </div>
+                            <div class="stat-info">
+                                <h3>IA Utilizada</h3>
+                                <p class="stat-number">85%</p>
+                                <p class="stat-change positive">+5% do que ontem</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upload-menu">
+                    <div class="upload-section">
+                        <h3>Documentos</h3>
+                        <div class="upload-options">
+                            <div class="upload-option" onclick="handleFileUpload('document')">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Upload de Arquivo</span>
+                            </div>
+                            <div class="upload-option" onclick="handleGoogleDrive()">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Google Drive</span>
+                            </div>
+                        </div>
+                        <div class="upload-hint">Formatos suportados: PDF, DOC, DOCX, TXT</div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>Mídia</h3>
+                        <div class="upload-options">
+                            <div class="upload-option" onclick="handleFileUpload('image')">
+                                <i class="fas fa-image"></i>
+                                <span>Upload de Imagem</span>
+                            </div>
+                            <div class="upload-option" onclick="handleFileUpload('audio')">
+                                <i class="fas fa-microphone"></i>
+                                <span>Upload de Áudio</span>
+                            </div>
+                        </div>
+                        <div class="upload-hint">Formatos suportados: JPG, PNG, MP3, WAV</div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>Integrações</h3>
+                        <div class="upload-option" onclick="handleDropbox()">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 7L12 3 3 7l9 4 9-4z"/>
+                                <path d="M3 7v10l9 4 9-4V7"/>
+                                <path d="M12 21V11"/>
+                            </svg>
+                            <span>Dropbox</span>
+                        </div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>Gravação</h3>
+                        <div class="upload-option" onclick="handleAudioRecord()">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                            <span>Gravar Áudio</span>
+                        </div>
+                        <div class="upload-option" onclick="handleVideoRecord()">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M23 7l-7 5 7 5V7z"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                            </svg>
+                            <span>Gravar Vídeo</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
 
-    <!-- JavaScript -->
-    <!-- Componentes base -->
-    <script src="js/components/editor.js"></script>
-    <script src="js/components/fileUploader.js"></script>
-    <script src="js/components/notification.js"></script>
-    
-    <!-- Core da aplicação -->
-    <script src="js/app.js"></script>
-    <script src="js/router.js"></script>
     <script src="js/dropdown.js"></script>
+    <script src="js/router.js"></script>
+    <script>
+        // Adicionar interatividade ao menu mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        });
+
+        document.getElementById('mobileOverlay').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('active');
+            this.classList.remove('active');
+        });
+        
+        // Redirecionar para página de novo artigo quando clicar no botão
+        const newArticleBtn = document.getElementById('newArticleBtn');
+        if (newArticleBtn) {
+            newArticleBtn.addEventListener('click', function() {
+                window.location.hash = '#/novo-artigo';
+            });
+        }
+        
+        // Verificar se o hash inicial existe e caso contrário, carregar a página inicial
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!window.location.hash) {
+                window.location.hash = '#/';
+            }
+        });
+    </script>
 </body>
 </html>

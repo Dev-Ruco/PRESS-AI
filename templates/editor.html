@@ -1,0 +1,366 @@
+<!-- Template de Criação de Novo Artigo -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Artigos</title>
+    <link rel="stylesheet" href="../css/editor.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="editor-container">
+        <!-- Cabeçalho da página -->
+    <div class="page-header">
+        <h1><span class="material-icons">edit</span> Criar Novo Artigo</h1>
+        <p class="page-description">Crie artigos jornalísticos com apoio de IA, acesso a notícias e um assistente virtual</p>
+        <div class="progress-steps-container">
+            <div class="progress-step active" data-step="1">
+                <span class="step-number">1</span>
+                <span class="step-label">Submissão</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="2">
+                <span class="step-number">2</span>
+                <span class="step-label">Estruturação</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="3">
+                <span class="step-number">3</span>
+                <span class="step-label">Geração</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid de painéis -->
+    <div class="editor-grid">
+        <!-- Painel de Submissão -->
+        <div class="painel-row">
+        <div class="editor-panel" id="painel-submissao">
+                <div class="panel-header">
+                <h2><span class="material-icons">edit_note</span> Submissão de Conteúdo</h2>
+                <span class="step-indicator">Passo 1/3</span>
+            </div>
+
+                <!-- Seleção de Género Jornalístico -->
+                <div class="form-group">
+                    <label for="generoJornalistico">Género do Artigo:</label>
+                    <select id="generoJornalistico" class="form-select">
+                        <option value="noticia">📄 Notícia</option>
+                        <option value="reportagem">🎙️ Reportagem</option>
+                        <option value="entrevista">👥 Entrevista</option>
+                        <option value="opiniao">💬 Opinião</option>
+                        <option value="analise">📊 Análise</option>
+                    </select>
+                </div>
+
+                <!-- Campo de texto moderno -->
+                <div class="modern-input-wrapper">
+                    <textarea 
+                        id="conteudoInicial" 
+                        class="modern-textarea"
+                        placeholder="Escreva aqui o lead, notas ou conteúdo inicial..."
+                    ></textarea>
+
+                    <!-- Botão de ações à esquerda -->
+                    <button class="modern-btn left-btn" title="Adicionar arquivos" onclick="toggleUploadMenu()">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown de Upload -->
+                    <div class="upload-dropdown" id="uploadMenu">
+                        <!-- Seção de Upload Local -->
+                        <div class="upload-section">
+                            <div class="upload-section-title">Upload Local</div>
+                            <div class="upload-option" onclick="handleFileUpload('document')">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                </svg>
+                                <span class="option-text">Documento</span>
+                                <span class="option-hint">.doc, .pdf</span>
+                            </div>
+                            <div class="upload-option" onclick="handleFileUpload('image')">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                </svg>
+                                <span class="option-text">Imagem</span>
+                                <span class="option-hint">.jpg, .png</span>
+                            </div>
+                            <div class="upload-option" onclick="handleFileUpload('audio')">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                                </svg>
+                                <span class="option-text">Áudio</span>
+                                <span class="option-hint">.mp3, .wav</span>
+                            </div>
+                            </div>
+                            
+                        <!-- Seção de Nuvem -->
+                        <div class="upload-section">
+                            <div class="upload-section-title">Nuvem</div>
+                            <div class="upload-option" onclick="handleGoogleDrive()">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.5L17.5 9 12 13.5 6.5 9 12 4.5z"/>
+                                </svg>
+                                <span class="option-text">Google Drive</span>
+                                <span class="option-hint">Conectar</span>
+                            </div>
+                            <div class="upload-option" onclick="handleDropbox()">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M3 6l9 4v12l-9-4V6zm9-4l9 4v12l-9-4V2z"/>
+                                </svg>
+                                <span class="option-text">Dropbox</span>
+                                <span class="option-hint">Conectar</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Seção de Mídia -->
+                        <div class="upload-section">
+                            <div class="upload-section-title">Mídia</div>
+                            <div class="upload-option" onclick="handleAudioRecord()">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                                    <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                                </svg>
+                                <span class="option-text">Gravar Áudio</span>
+                                <span class="option-hint">Microfone</span>
+                            </div>
+                            <div class="upload-option" onclick="handleVideoRecord()">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                                </svg>
+                                <span class="option-text">Gravar Vídeo</span>
+                                <span class="option-hint">Câmera</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botão de submeter à direita -->
+                    <button class="modern-btn right-btn" title="Submeter">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Painel do Assistente -->
+            <div class="assistente-container">
+                <div class="assistente-header">
+                    <h2><span class="material-icons">smart_toy</span> Assistente IA</h2>
+                </div>
+
+                <div class="assistente-tabs">
+                    <div class="assistente-tab" data-tab="chat">Assistente Virtual</div>
+                    <div class="assistente-tab active" data-tab="noticias">Últimas Notícias</div>
+                </div>
+
+                <div class="chat-box" id="chatTab">
+                    <div class="chat-message assistant">
+                        Olá! Como posso te ajudar hoje? Posso sugerir títulos, estruturar seu artigo ou ajudar com a redação.
+                    </div>
+                    <div class="chat-message user">
+                        Sugira um título para meu artigo sobre tecnologia.
+                    </div>
+                    <div class="chat-message assistant">
+                        Aqui estão algumas sugestões de títulos:
+                        1. "O Futuro da IA: Como a Inteligência Artificial está Transformando o Jornalismo"
+                        2. "Tecnologia e Sociedade: O Impacto das Novas Ferramentas Digitais no Cotidiano"
+                        3. "Inovação em Foco: As Tendências Tecnológicas que Moldarão o Próximo Ano"
+                    </div>
+                </div>
+
+                <div class="noticias-lista" id="noticiasLista">
+                    <div class="mini-noticia">
+                        <div class="noticia-header">
+                            <span class="noticia-tipo">Tecnologia</span>
+                            <span class="noticia-data">há 2 horas</span>
+                        </div>
+                        <h3 class="noticia-titulo">Inteligência Artificial revoluciona o jornalismo digital</h3>
+                        <p class="noticia-resumo">Novas ferramentas de IA estão transformando a forma como as notícias são produzidas e consumidas...</p>
+                    </div>
+                    <div class="mini-noticia">
+                        <div class="noticia-header">
+                            <span class="noticia-tipo">Política</span>
+                            <span class="noticia-data">há 4 horas</span>
+                        </div>
+                        <h3 class="noticia-titulo">Governo anuncia novas medidas para economia digital</h3>
+                        <p class="noticia-resumo">Pacote de incentivos visa fomentar a inovação tecnológica no país...</p>
+                    </div>
+                    <div class="mini-noticia">
+                        <div class="noticia-header">
+                            <span class="noticia-tipo">Ciência</span>
+                            <span class="noticia-data">há 6 horas</span>
+                        </div>
+                        <h3 class="noticia-titulo">Pesquisadores descobrem nova aplicação para blockchain</h3>
+                        <p class="noticia-resumo">Tecnologia pode revolucionar a segurança de dados em sistemas governamentais...</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" placeholder="Digite sua mensagem...">
+                    <button class="chat-upload-btn" title="Enviar arquivo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                    <button class="chat-upload-btn" title="Enviar mensagem">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Painéis ocultos -->
+        <div class="editor-painel-extra" id="painel-estrutura" style="display: none;">
+            <div class="card-header">
+                <h2><span class="material-icons">view_stream</span> Pré-Estrutura da Notícia</h2>
+                <span class="step-indicator">Passo 2/3</span>
+            </div>
+            <div class="card-content">
+                <div class="estrutura-container">
+                    <div class="estrutura-bloco">
+                        <div class="estrutura-label">
+                            <span class="material-icons">title</span>
+                            <label>Título sugerido</label>
+                        </div>
+                        <input type="text" id="tituloSugerido" class="estrutura-input">
+                    </div>
+
+                    <div class="estrutura-bloco">
+                        <div class="estrutura-label">
+                            <span class="material-icons">subject</span>
+                            <label>Subtítulo ou lead</label>
+                        </div>
+                        <textarea id="subtituloSugerido" class="estrutura-textarea"></textarea>
+                    </div>
+
+                    <div class="estrutura-bloco">
+                        <div class="estrutura-label">
+                            <span class="material-icons">psychology</span>
+                            <label>Contexto inicial</label>
+                        </div>
+                        <textarea id="contextoSugerido" class="estrutura-textarea"></textarea>
+                    </div>
+
+                    <div class="estrutura-bloco">
+                        <div class="estrutura-label">
+                            <span class="material-icons">format_list_bulleted</span>
+                            <label>Dados organizados</label>
+                        </div>
+                        <textarea id="dadosSugeridos" class="estrutura-textarea"></textarea>
+                    </div>
+
+                    <div class="estrutura-bloco">
+                        <div class="estrutura-label">
+                            <span class="material-icons">summarize</span>
+                            <label>Conclusão</label>
+                        </div>
+                        <textarea id="conclusaoSugerida" class="estrutura-textarea"></textarea>
+                    </div>
+
+                    <!-- Área de transcrições detectadas -->
+                    <div class="transcricoes-container">
+                        <h3>Transcrições Detectadas</h3>
+                        <div class="transcricoes-lista" id="transcricoesLista">
+                            <!-- Transcrições são inseridas dinamicamente aqui -->
+                        </div>
+                    </div>
+
+                    <div class="estrutura-acoes">
+                        <button id="btnReanalisar" class="btn-secundario">
+                            <span class="material-icons">refresh</span>
+                            Reanalisar
+                        </button>
+                        <button id="btnConfirmarEstrutura" class="btn-primario">
+                            <span class="material-icons">check</span>
+                            Confirmar Estrutura
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-painel-extra" id="painel-visualizacao" style="display: none;">
+            <div class="card-header">
+                <h2><span class="material-icons">article</span> Visualização do Artigo</h2>
+                <span class="step-indicator">Passo 3/3</span>
+            </div>
+            <div class="card-content">
+                <div class="artigo-container">
+                    <div class="artigo-meta">
+                        <span id="artigo-genero" class="artigo-tipo">Notícia</span>
+                        <div class="artigo-info">
+                            <span class="material-icons">event</span>
+                            <span id="artigo-data">Data atual</span>
+                        </div>
+                    </div>
+                    <div class="artigo-editor" id="artigoFinal" contenteditable="true">
+                        <!-- O conteúdo do artigo gerado será inserido aqui -->
+                    </div>
+                </div>
+
+                <div class="visualizacao-acoes">
+                    <button id="btnVoltar" class="btn-secundario">
+                        <span class="material-icons">arrow_back</span>
+                        Voltar
+                    </button>
+                    <button id="btnRegenerar" class="btn-secundario">
+                        <span class="material-icons">autorenew</span>
+                        Regenerar
+                    </button>
+                    <button id="btnEditar" class="btn-secundario">
+                        <span class="material-icons">edit</span>
+                        Editar
+                    </button>
+                    <button id="btnPublicar" class="btn-primario">
+                        <span class="material-icons">publish</span>
+                        Publicar
+                    </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de carregamento -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <div class="loading-message">Processando seu conteúdo...</div>
+    </div>
+</div>
+
+    <!-- Scripts -->
+    <script src="js/editor.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.assistente-tab');
+        const chatBox = document.getElementById('chatTab');
+        const noticiasLista = document.getElementById('noticiasLista');
+
+        function showTab(tab) {
+            if (tab === 'chat') {
+                chatBox.style.display = 'flex';
+                noticiasLista.style.display = 'none';
+            } else if (tab === 'noticias') {
+                chatBox.style.display = 'none';
+                noticiasLista.style.display = 'flex';
+            }
+        }
+
+        // Inicializa mostrando a aba de notícias
+        showTab('noticias');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                showTab(tab.dataset.tab);
+            });
+        });
+    });
+</script>
+</body>
+</html>

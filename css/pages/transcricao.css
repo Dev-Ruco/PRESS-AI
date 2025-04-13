@@ -1,3 +1,205 @@
+/* Estilos para a página de Transcrição */
+
+.transcricao-container {
+    padding: 20px;
+    background-color: var(--bg-gray);
+    min-height: 100%;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.page-header h1 .material-icons {
+    margin-right: 12px;
+    color: var(--primary);
+}
+
+.page-description {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Card principal */
+.card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Área de upload */
+.upload-area {
+    border: 2px dashed var(--primary);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--bg-light);
+    transition: var(--transition-fast);
+}
+
+.upload-area:hover {
+    background-color: var(--bg-gray-light);
+}
+
+.upload-icon {
+    font-size: 42px;
+    color: var(--primary);
+}
+
+.file-preview {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Formulário */
+.form-group {
+    margin-top: 24px;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--bg-white);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+/* Modos de transcrição */
+.mode-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 16px;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: var(--transition-fast);
+}
+
+.mode-btn:hover {
+    background-color: var(--bg-gray-light);
+}
+
+.mode-btn.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.mode-btn small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Configurações avançadas */
+.advanced-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    margin-top: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.advanced-btn:hover {
+    color: var(--primary-dark);
+}
+
+.advanced-settings {
+    margin-top: 16px;
+    display: none;
+    background-color: var(--bg-light);
+    padding: 16px;
+    border-radius: var(--border-radius);
+}
+
+.advanced-settings label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.advanced-settings input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Botão de transcrição */
+.transcribe-btn {
+    margin-top: 32px;
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+
+.transcribe-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.transcribe-btn:disabled {
+    background-color: var(--primary-light);
+    cursor: not-allowed;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .mode-options {
+        flex-direction: column;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .upload-area {
+        padding: 20px;
+    }
+}
+
 /* Estilos para a página de Reformulação/Transcrição */
 
 .reformulador-container {
@@ -626,4 +828,166 @@ input:checked + .slider:before {
     .config-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+:root {
+  --primary: #4B5563;
+  --primary-dark: #374151;
+  --primary-light: #6B7280;
+  --bg-white: #FFFFFF;
+  --bg-light: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --border-color: #E5E7EB;
+  --radius: 18px;
+  --transition: 0.2s ease;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.upload-area {
+  border: 2px dashed var(--primary);
+  border-radius: var(--radius);
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--bg-light);
+  transition: var(--transition);
+}
+
+.upload-area:hover {
+  background-color: #f3f4f6;
+}
+
+.upload-icon {
+  font-size: 42px;
+  color: var(--primary);
+}
+
+.file-preview {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.form-group {
+  margin-top: 24px;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--bg-white);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.mode-options {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 16px;
+  border-radius: var(--radius);
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.mode-btn.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.advanced-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  margin-top: 24px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.advanced-settings {
+  margin-top: 16px;
+  display: none;
+  background-color: var(--bg-light);
+  padding: 16px;
+  border-radius: var(--radius);
+}
+
+.advanced-settings label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.transcribe-btn {
+  margin-top: 32px;
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.transcribe-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.transcribe-btn:disabled {
+  background-color: var(--primary-light);
+  cursor: not-allowed;
 }

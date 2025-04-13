@@ -31,8 +31,8 @@ async function renderPage(route) {
     const contentWrapper = document.querySelector('.content-wrapper');
     if (!contentWrapper) {
         console.error('Container de conteúdo não encontrado');
-        return;
-    }
+            return;
+        }
 
     const templateName = routes[route] || 'dashboard';
     
